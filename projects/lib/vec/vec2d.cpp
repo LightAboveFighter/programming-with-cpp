@@ -37,4 +37,26 @@ Vec2d operator* (const Vec2d& lhs, double rhs) { return Vec2d{lhs} *= rhs; }
 
 Vec2d operator* (double lhs, const Vec2d& rhs) { return rhs * lhs; }
 
+double dot(const Vec2d& first, const Vec2d& second) {
+  return first.x * second.x + first.y * second.y;
+}
+
 double length (const Vec2d& v) { return std::sqrt(v.x * v.x + v.y * v.y); }
+
+double cross(const Vec2d& first, const Vec2d& second) {
+  return lenght( first.x * second.y - second.x * first.y);
+}
+
+Vec2d Vec2d::rotated (const Vec2d& v, double angle)
+{
+  Vec2d res;
+
+  double cos_angle = cos(angle), sin_angle = sin(angle);
+
+  double rotated_x = cos_angle * v.x + sin_angle * v.y;
+  double rotated_y = sin_angle * (-v.x) + cos_angle * v.y;
+
+  x = rotated_x
+  y = rotated_y
+  return res;
+}
